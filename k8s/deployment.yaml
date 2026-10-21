@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: webapp
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: webapp
+
+  template:
+    metadata:
+      labels:
+        app: webapp
+
+    spec:
+      containers:
+        - name: webapp
+          image: maheshgitopslab.azurecr.io/webapp:acdf080c8eb296822b288327899708e51922a651
+          ports:
+            - containerPort: 80
